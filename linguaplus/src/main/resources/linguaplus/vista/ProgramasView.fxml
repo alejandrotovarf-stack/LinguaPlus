@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="linguaplus.controlador.ProgramasController"
+      spacing="20">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <ScrollPane fitToWidth="true" prefWidth="340" styleClass="scroll-pane">
+        <VBox styleClass="card" spacing="10">
+            <Label text="Registrar programa" styleClass="section-title"/>
+
+            <Label text="Codigo" styleClass="field-label"/>
+            <TextField fx:id="txtCodigo" promptText="Ej. ING-B1"/>
+
+            <Label text="Nombre" styleClass="field-label"/>
+            <TextField fx:id="txtNombre" promptText="Ej. Ingles Intensivo B1"/>
+
+            <Label text="Idioma" styleClass="field-label"/>
+            <TextField fx:id="txtIdioma" promptText="Ej. Ingles"/>
+
+            <Label text="Descripcion" styleClass="field-label"/>
+            <TextField fx:id="txtDescripcion" promptText="Breve descripcion"/>
+
+            <Label text="Duracion (meses)" styleClass="field-label"/>
+            <TextField fx:id="txtDuracion" promptText="Ej. 6"/>
+
+            <Label text="Valor mensual" styleClass="field-label"/>
+            <TextField fx:id="txtValorMensual" promptText="Ej. 250000"/>
+
+            <Label text="Tipo" styleClass="field-label"/>
+            <ComboBox fx:id="cmbTipo" maxWidth="Infinity"/>
+
+            <Label text="Modalidad" styleClass="field-label"/>
+            <ComboBox fx:id="cmbModalidad" maxWidth="Infinity"/>
+
+            <Label text="Estado" styleClass="field-label"/>
+            <ComboBox fx:id="cmbEstado" maxWidth="Infinity"/>
+
+            <Label text="Beneficios (separados por coma)" styleClass="field-label"/>
+            <TextField fx:id="txtBeneficios" promptText="Ej. Plataforma virtual, Tutor"/>
+
+            <Button text="Registrar programa" styleClass="btn-primary" onAction="#onRegistrar" maxWidth="Infinity"/>
+            <Label fx:id="lblMensaje" styleClass="helper-text" wrapText="true"/>
+        </VBox>
+    </ScrollPane>
+
+    <VBox spacing="10" HBox.hgrow="ALWAYS">
+        <Label text="Programas de formacion" styleClass="section-title"/>
+        <TableView fx:id="tablaProgramas" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colCodigo" text="Codigo" prefWidth="80"/>
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="170"/>
+                <TableColumn fx:id="colIdioma" text="Idioma" prefWidth="90"/>
+                <TableColumn fx:id="colTipo" text="Tipo" prefWidth="100"/>
+                <TableColumn fx:id="colModalidad" text="Modalidad" prefWidth="90"/>
+                <TableColumn fx:id="colDuracion" text="Meses" prefWidth="60"/>
+                <TableColumn fx:id="colValor" text="Valor/mes" prefWidth="90"/>
+                <TableColumn fx:id="colEstado" text="Estado" prefWidth="90"/>
+            </columns>
+        </TableView>
+    </VBox>
+</HBox>

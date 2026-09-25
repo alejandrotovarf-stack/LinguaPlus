@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="linguaplus.controlador.ComprobantesController"
+      spacing="20">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <VBox styleClass="card" prefWidth="320" spacing="12">
+        <Label text="Generar comprobante de pago" styleClass="section-title"/>
+        <Label text="RF-09: mismo proceso de emision (Factory Method), formato intercambiable."
+               styleClass="helper-text" wrapText="true"/>
+
+        <Label text="Matricula" styleClass="field-label"/>
+        <ComboBox fx:id="cmbMatricula" maxWidth="Infinity"/>
+
+        <Label text="Formato" styleClass="field-label"/>
+        <HBox spacing="16">
+            <fx:define>
+                <ToggleGroup fx:id="grupoFormato"/>
+            </fx:define>
+            <RadioButton fx:id="rbPdf" text="PDF" toggleGroup="$grupoFormato" selected="true"/>
+            <RadioButton fx:id="rbExcel" text="Excel" toggleGroup="$grupoFormato"/>
+        </HBox>
+
+        <Button text="Generar comprobante" styleClass="btn-primary" onAction="#onGenerar" maxWidth="Infinity"/>
+        <Button text="Guardar como archivo..." styleClass="btn-secondary" onAction="#onGuardar" maxWidth="Infinity"/>
+        <Label fx:id="lblMensaje" styleClass="helper-text" wrapText="true"/>
+    </VBox>
+
+    <VBox spacing="10" HBox.hgrow="ALWAYS">
+        <Label text="Vista previa del comprobante" styleClass="section-title"/>
+        <TextArea fx:id="txtResultado" editable="false" wrapText="true" styleClass="monospace" VBox.vgrow="ALWAYS"/>
+    </VBox>
+</HBox>

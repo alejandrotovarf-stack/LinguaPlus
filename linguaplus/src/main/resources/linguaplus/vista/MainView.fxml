@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Label?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="linguaplus.controlador.MainController"
+            stylesheets="@../css/styles.css">
+
+    <top>
+        <VBox styleClass="header-bar">
+            <Label text="LinguaPlus" styleClass="header-title">
+                <font>
+                    <Font size="22.0"/>
+                </font>
+            </Label>
+            <Label text="Sistema de gestion academica" styleClass="header-subtitle"/>
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <Tab text="Estudiantes">
+                <fx:include source="EstudiantesView.fxml"/>
+            </Tab>
+            <Tab text="Programas">
+                <fx:include source="ProgramasView.fxml"/>
+            </Tab>
+            <Tab text="Periodos y Ofertas">
+                <fx:include source="PeriodosView.fxml"/>
+            </Tab>
+            <Tab text="Docentes">
+                <fx:include source="DocentesView.fxml"/>
+            </Tab>
+            <Tab text="Servicios">
+                <fx:include source="ServiciosView.fxml"/>
+            </Tab>
+            <Tab text="Matriculas">
+                <fx:include source="MatriculasView.fxml"/>
+            </Tab>
+            <Tab text="Comprobantes">
+                <fx:include source="ComprobantesView.fxml"/>
+            </Tab>
+            <Tab text="Consultas">
+                <fx:include source="ConsultasView.fxml"/>
+            </Tab>
+        </TabPane>
+    </center>
+
+</BorderPane>

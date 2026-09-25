@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Separator?>
+
+<HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="linguaplus.controlador.PeriodosController"
+      spacing="20">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <VBox styleClass="card" prefWidth="340" spacing="10">
+        <Label text="1. Oferta base (plantilla)" styleClass="section-title"/>
+        <Label text="Agrega aqui las ofertas que luego se clonaran (Prototype) hacia cada periodo, con cupos independientes."
+               styleClass="helper-text" wrapText="true"/>
+
+        <Label text="Programa" styleClass="field-label"/>
+        <ComboBox fx:id="cmbPrograma" maxWidth="Infinity"/>
+
+        <Label text="Horario" styleClass="field-label"/>
+        <TextField fx:id="txtHorario" promptText="Ej. Lunes y miercoles 6-8pm"/>
+
+        <Label text="Cupos" styleClass="field-label"/>
+        <TextField fx:id="txtCupos" promptText="Ej. 20"/>
+
+        <Button text="Agregar oferta a la base" styleClass="btn-secondary" onAction="#onAgregarOferta" maxWidth="Infinity"/>
+
+        <ListView fx:id="listaOfertaBase" prefHeight="120"/>
+
+        <Separator/>
+
+        <Label text="2. Crear periodo desde la base" styleClass="section-title"/>
+
+        <Label text="Identificador del periodo" styleClass="field-label"/>
+        <TextField fx:id="txtIdentificador" promptText="Ej. 2026-1"/>
+
+        <Label text="Fecha inicio" styleClass="field-label"/>
+        <DatePicker fx:id="dpFechaInicio" maxWidth="Infinity"/>
+
+        <Label text="Fecha fin" styleClass="field-label"/>
+        <DatePicker fx:id="dpFechaFin" maxWidth="Infinity"/>
+
+        <Button text="Crear periodo (clonar oferta base)" styleClass="btn-primary" onAction="#onCrearPeriodo" maxWidth="Infinity"/>
+        <Label fx:id="lblMensaje" styleClass="helper-text" wrapText="true"/>
+    </VBox>
+
+    <VBox spacing="10" HBox.hgrow="ALWAYS">
+        <Label text="Periodos academicos" styleClass="section-title"/>
+        <TableView fx:id="tablaPeriodos" prefHeight="220">
+            <columns>
+                <TableColumn fx:id="colIdentificador" text="Periodo" prefWidth="100"/>
+                <TableColumn fx:id="colFechaInicio" text="Inicio" prefWidth="100"/>
+                <TableColumn fx:id="colFechaFin" text="Fin" prefWidth="100"/>
+                <TableColumn fx:id="colNumOfertas" text="# Ofertas" prefWidth="80"/>
+            </columns>
+        </TableView>
+
+        <Label text="Ofertas y cupos del periodo seleccionado" styleClass="section-title"/>
+        <TableView fx:id="tablaOfertas" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colOfertaPrograma" text="Programa" prefWidth="200"/>
+                <TableColumn fx:id="colOfertaHorario" text="Horario" prefWidth="200"/>
+                <TableColumn fx:id="colOfertaCupos" text="Cupos disponibles" prefWidth="130"/>
+            </columns>
+        </TableView>
+    </VBox>
+</HBox>

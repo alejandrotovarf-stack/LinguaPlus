@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="linguaplus.controlador.MatriculasController"
+      spacing="20">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <ScrollPane fitToWidth="true" prefWidth="360" styleClass="scroll-pane">
+        <VBox styleClass="card" spacing="10">
+            <Label text="Registrar matricula" styleClass="section-title"/>
+
+            <Label text="Estudiante" styleClass="field-label"/>
+            <ComboBox fx:id="cmbEstudiante" maxWidth="Infinity"/>
+
+            <Label text="Programa" styleClass="field-label"/>
+            <ComboBox fx:id="cmbPrograma" maxWidth="Infinity"/>
+
+            <Label text="Fecha de inicio" styleClass="field-label"/>
+            <DatePicker fx:id="dpFechaInicio" maxWidth="Infinity"/>
+
+            <Label text="Periodo (opcional, para consumir cupo)" styleClass="field-label"/>
+            <ComboBox fx:id="cmbPeriodo" maxWidth="Infinity"/>
+
+            <Label text="Tutor (opcional)" styleClass="field-label"/>
+            <ComboBox fx:id="cmbTutor" maxWidth="Infinity"/>
+
+            <Label text="Servicios adicionales (opcional, seleccion multiple)" styleClass="field-label"/>
+            <ListView fx:id="listaServicios" prefHeight="90"/>
+
+            <Label text="Descuento (%)" styleClass="field-label"/>
+            <TextField fx:id="txtDescuento" promptText="0 a 30"/>
+
+            <Label text="Observaciones (opcional)" styleClass="field-label"/>
+            <TextArea fx:id="txtObservaciones" prefRowCount="2" wrapText="true"/>
+
+            <Button text="Registrar matricula" styleClass="btn-primary" onAction="#onRegistrar" maxWidth="Infinity"/>
+            <Label fx:id="lblMensaje" styleClass="helper-text" wrapText="true"/>
+        </VBox>
+    </ScrollPane>
+
+    <VBox spacing="10" HBox.hgrow="ALWAYS">
+        <Label text="Matriculas registradas" styleClass="section-title"/>
+        <TableView fx:id="tablaMatriculas" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colNumero" text="No." prefWidth="50"/>
+                <TableColumn fx:id="colEstudiante" text="Estudiante" prefWidth="160"/>
+                <TableColumn fx:id="colPrograma" text="Programa" prefWidth="150"/>
+                <TableColumn fx:id="colFechaInicio" text="Inicio" prefWidth="90"/>
+                <TableColumn fx:id="colTutor" text="Tutor" prefWidth="120"/>
+                <TableColumn fx:id="colDescuento" text="Desc.%" prefWidth="60"/>
+                <TableColumn fx:id="colTotal" text="Valor total" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </VBox>
+</HBox>

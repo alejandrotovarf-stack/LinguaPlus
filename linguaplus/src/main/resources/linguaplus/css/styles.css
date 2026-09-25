@@ -1,0 +1,236 @@
+/*
+ * LinguaPlus - Hoja de estilos global
+ * Paleta (psicologia del color para entorno educativo):
+ *   - Azul profundo   #1F4E78  -> confianza, concentracion, marca
+ *   - Azul medio      #2E6DA4  -> hover / elementos secundarios
+ *   - Gris/blanco     #F7F9FB / #FFFFFF -> limpieza, orden, foco en contenido
+ *   - Coral (acento)  #FF6F59  -> llamadas a la accion (CTA), energia calida
+ *   - Verde (exito)   #27AE60  -> estados positivos / disponibilidad
+ *   - Rojo (alerta)   #C0392B  -> errores / no disponible
+ */
+
+* {
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -color-primary: #1F4E78;
+    -color-primary-light: #2E6DA4;
+    -color-bg: #F7F9FB;
+    -color-surface: #FFFFFF;
+    -color-border: #E1E5EA;
+    -color-text: #263238;
+    -color-text-muted: #607D8B;
+    -color-accent: #FF6F59;
+    -color-accent-dark: #E85B45;
+    -color-success: #27AE60;
+    -color-danger: #C0392B;
+}
+
+.root {
+    -fx-background-color: -color-bg;
+    -fx-text-fill: -color-text;
+    -fx-font-size: 13px;
+}
+
+/* ---------- Encabezado ---------- */
+.header-bar {
+    -fx-background-color: -color-primary;
+    -fx-padding: 18 28 18 28;
+}
+
+.header-title {
+    -fx-text-fill: white;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.header-subtitle {
+    -fx-text-fill: #D6E4F0;
+    -fx-font-size: 12px;
+}
+
+/* ---------- Tabs ---------- */
+.tab-pane {
+    -fx-tab-min-width: 128px;
+}
+
+.tab-pane .tab-header-area {
+    -fx-padding: 6 0 0 12;
+}
+
+.tab-pane .tab-header-background {
+    -fx-background-color: -color-surface;
+}
+
+.tab {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 10 16 10 16;
+}
+
+.tab:selected {
+    -fx-background-color: -color-bg;
+    -fx-border-color: -color-accent transparent transparent transparent;
+    -fx-border-width: 3 0 0 0;
+}
+
+.tab .tab-label {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-weight: 600;
+}
+
+.tab:selected .tab-label {
+    -fx-text-fill: -color-primary;
+}
+
+/* ---------- Tarjetas / paneles ---------- */
+.card {
+    -fx-background-color: -color-surface;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: -color-border;
+    -fx-border-width: 1;
+    -fx-padding: 20;
+    -fx-spacing: 10;
+}
+
+.section-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-primary;
+    -fx-padding: 0 0 6 0;
+}
+
+.field-label {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+}
+
+.helper-text {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 11px;
+}
+
+/* ---------- Campos de entrada ---------- */
+.text-field, .text-area, .combo-box, .date-picker, .spinner, .list-view, .choice-box {
+    -fx-background-color: -color-surface;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 6;
+}
+
+.text-field:focused, .text-area:focused, .combo-box:focused, .date-picker:focused {
+    -fx-border-color: -color-primary-light;
+}
+
+.text-area .content {
+    -fx-background-color: -color-surface;
+    -fx-background-radius: 6;
+}
+
+/* ---------- Botones ---------- */
+.button {
+    -fx-background-color: -color-surface;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-text-fill: -color-text;
+    -fx-padding: 8 18 8 18;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-border-color: -color-primary-light;
+}
+
+.btn-primary {
+    -fx-background-color: -color-accent;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-width: 0;
+}
+
+.btn-primary:hover {
+    -fx-background-color: -color-accent-dark;
+}
+
+.btn-secondary {
+    -fx-background-color: -color-primary;
+    -fx-text-fill: white;
+    -fx-border-width: 0;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: -color-primary-light;
+}
+
+.btn-danger {
+    -fx-background-color: transparent;
+    -fx-text-fill: -color-danger;
+    -fx-border-color: -color-danger;
+}
+
+/* ---------- Tablas ---------- */
+.table-view {
+    -fx-background-color: -color-surface;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #EAF1F8;
+    -fx-background-radius: 8 8 0 0;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent -color-border transparent;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: -color-primary;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.table-row-cell {
+    -fx-background-color: -color-surface;
+    -fx-border-color: transparent transparent -color-border transparent;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #FBFCFE;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #D6E4F0;
+    -fx-text-fill: -color-text;
+}
+
+/* ---------- Etiquetas de estado ---------- */
+.tag-success {
+    -fx-text-fill: -color-success;
+    -fx-font-weight: bold;
+}
+
+.tag-danger {
+    -fx-text-fill: -color-danger;
+    -fx-font-weight: bold;
+}
+
+.result-box {
+    -fx-background-color: #EAF2F8;
+    -fx-background-radius: 8;
+    -fx-border-color: -color-primary-light;
+    -fx-border-radius: 8;
+    -fx-padding: 14;
+}
+
+.monospace {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+}
+
+.scroll-pane, .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}

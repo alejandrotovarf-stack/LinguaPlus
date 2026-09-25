@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Separator?>
+
+<HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="linguaplus.controlador.ConsultasController"
+      spacing="20">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <VBox styleClass="card" prefWidth="360" spacing="10">
+        <Label text="Buscar estudiante por telefono" styleClass="section-title"/>
+        <TextField fx:id="txtTelefono" promptText="Ej. 3001234567"/>
+        <Button text="Buscar" styleClass="btn-secondary" onAction="#onBuscarTelefono" maxWidth="Infinity"/>
+        <Label fx:id="lblResultadoTelefono" styleClass="helper-text" wrapText="true"/>
+
+        <Separator/>
+
+        <Label text="Verificar numero perfecto" styleClass="section-title"/>
+        <Label text="RF-12: un numero es perfecto si es igual a la suma de sus divisores propios (ej. 28)."
+               styleClass="helper-text" wrapText="true"/>
+        <TextField fx:id="txtNumero" promptText="Ej. 28"/>
+        <Button text="Verificar" styleClass="btn-secondary" onAction="#onVerificarNumero" maxWidth="Infinity"/>
+        <Label fx:id="lblResultadoNumero" styleClass="helper-text" wrapText="true"/>
+    </VBox>
+
+    <VBox styleClass="card" prefWidth="360" spacing="10">
+        <Label text="Ingresos por periodo" styleClass="section-title"/>
+        <Label text="RF-13: suma el valor total de las matriculas cuya fecha de inicio cae dentro del periodo."
+               styleClass="helper-text" wrapText="true"/>
+
+        <Label text="Periodo academico" styleClass="field-label"/>
+        <ComboBox fx:id="cmbPeriodo" maxWidth="Infinity"/>
+
+        <Button text="Calcular ingresos" styleClass="btn-primary" onAction="#onCalcularIngresos" maxWidth="Infinity"/>
+
+        <VBox styleClass="result-box" spacing="6">
+            <Label fx:id="lblCantidadMatriculas" text="Matriculas en el periodo: -"/>
+            <Label fx:id="lblTotalIngresos" text="Ingresos totales: -"/>
+        </VBox>
+    </VBox>
+</HBox>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="linguaplus.controlador.ServiciosController"
+      spacing="20">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <VBox styleClass="card" prefWidth="320" spacing="10">
+        <Label text="Registrar servicio adicional" styleClass="section-title"/>
+
+        <Label text="Codigo" styleClass="field-label"/>
+        <TextField fx:id="txtCodigo" promptText="Ej. SRV-03"/>
+
+        <Label text="Nombre" styleClass="field-label"/>
+        <TextField fx:id="txtNombre" promptText="Ej. Material extra"/>
+
+        <Label text="Descripcion" styleClass="field-label"/>
+        <TextField fx:id="txtDescripcion" promptText="Breve descripcion"/>
+
+        <Label text="Precio" styleClass="field-label"/>
+        <TextField fx:id="txtPrecio" promptText="Ej. 50000"/>
+
+        <CheckBox fx:id="chkDisponible" text="Disponible" selected="true"/>
+
+        <Button text="Registrar servicio" styleClass="btn-primary" onAction="#onRegistrar" maxWidth="Infinity"/>
+        <Label fx:id="lblMensaje" styleClass="helper-text" wrapText="true"/>
+    </VBox>
+
+    <VBox spacing="10" HBox.hgrow="ALWAYS">
+        <Label text="Servicios adicionales" styleClass="section-title"/>
+        <TableView fx:id="tablaServicios" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colCodigo" text="Codigo" prefWidth="90"/>
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="180"/>
+                <TableColumn fx:id="colDescripcion" text="Descripcion" prefWidth="220"/>
+                <TableColumn fx:id="colPrecio" text="Precio" prefWidth="90"/>
+                <TableColumn fx:id="colDisponible" text="Disponible" prefWidth="90"/>
+            </columns>
+        </TableView>
+    </VBox>
+</HBox>
